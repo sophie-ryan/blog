@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Counterculture: Music vs.&nbsp;Media</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Counterculture_Blog2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Counterculture_Blog2_files/libs/quarto-html/quarto.js"></script>
+<script src="Counterculture_Blog2_files/libs/quarto-html/popper.min.js"></script>
+<script src="Counterculture_Blog2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Counterculture_Blog2_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Counterculture_Blog2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Counterculture_Blog2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Counterculture_Blog2_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Counterculture_Blog2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Counterculture_Blog2_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Counterculture: Music vs.&nbsp;Media</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="research-question" class="level2">
+<h2 class="anchored" data-anchor-id="research-question">Research Question</h2>
+<p>In my project, I will be investigating how themes and sentiments of counterculture rock music in the 1960’s compared to that of mainstream media, particularly in relation to the Vietnam War, civil rights, and social justice movements.</p>
+</section>
+<section id="my-corpus" class="level2">
+<h2 class="anchored" data-anchor-id="my-corpus">My Corpus</h2>
+<p>In order to collect this data, I decided to utilize the set list from the Woodstock Art and Music Festival of 1969. This festival was a pivotal moment in music history and popular culture. It was representative of the wide social unrest taking place at the time. Almost 500,000 people attended in efforts to promote peace and unity. This was the pinnacle of the counterculture movement, a political and cultural phenomenon that was anti-war, anti-establishment, and pro-peace. Young people across the country organized protests to fight for civil rights, and music often played a huge role in this. Many rock artists at this time used their platforms to support these causes, and the music was very politically charged. Jimi Hendrix’ famous rendition of the Star Spangled Banner is one example of how the festival was leveraged to express unhappiness with the political climate. Therefore, the music played at this 3 day long festival is the perfect culmination of songs for my corpus representing the messages of counterculture’s rock music.</p>
+<section id="lyrics-corpus" class="level3">
+<h3 class="anchored" data-anchor-id="lyrics-corpus">Lyrics Corpus</h3>
+<p>To acquire these songs and lyrics, I used webscraping from Wikipedia and a lyric website called LyricsFreak. First, I scraped the Wikipedia page that gave a list of songs and artists.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Loading packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textplots)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.sentiment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: quanteda</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Package version: 4.2.0
+Unicode version: 14.0
+ICU version: 71.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Parallel computing: disabled</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>See https://quanteda.io for tutorials and examples.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'quanteda.sentiment'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:quanteda':
+
+    data_dictionary_LSD2015</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(curl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using libcurl 8.11.1 with OpenSSL/3.3.2 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'curl'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:httr':
+
+    handle_reset</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'readr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:curl':
+
+    parse_date</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:rvest':
+
+    guess_encoding</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textplots)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Defining the Wikipedia URL for the setlist at Woodstock</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>url1 <span class="ot">&lt;-</span> <span class="st">"https://en.wikipedia.org/wiki/List_of_performances_and_events_at_Woodstock_Festival"</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Defining the CSS selectors. </span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>css_selector <span class="ot">&lt;-</span> <span class="st">".mw-body p + ol"</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>css_selector_artists <span class="ot">&lt;-</span> <span class="st">".mw-body .mw-heading3"</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>special_css <span class="ot">&lt;-</span> <span class="st">"ol"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I defined 3 selectors, one for the titles which gave the artist name, another for the body which gave the song list, and a third for a special case, Crosby Stills and Nash. This artist’s songs were in a nested list, which I had to treat differently.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Song text</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>song_list <span class="ot">&lt;-</span> url1 <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_html</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="at">css =</span> css_selector) <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">#CSN song text</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>special_case <span class="ot">&lt;-</span> url1 <span class="sc">%&gt;%</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_html</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="at">css =</span> special_css) <span class="sc">%&gt;%</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>() </span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Artist list</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>artist_list <span class="ot">&lt;-</span> url1 <span class="sc">%&gt;%</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_html</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="at">css =</span> css_selector_artists) <span class="sc">%&gt;%</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text</span>()</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="co">#Removing a speaker, not an artist</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>artist_list <span class="ot">&lt;-</span> artist_list[<span class="sc">-</span><span class="dv">2</span>]</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="co">#Defining the nested list I need</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>special2 <span class="ot">&lt;-</span> (special_case[<span class="dv">29</span><span class="sc">:</span><span class="dv">32</span>])</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>flattened_songs <span class="ot">&lt;-</span> <span class="fu">paste</span>(special2, <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a><span class="co">#Adding the nested list songs to the original song list in the corresponding artist spot</span></span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>song_list <span class="ot">&lt;-</span> <span class="fu">append</span>(song_list, <span class="fu">list</span>(flattened_songs), <span class="at">after =</span> <span class="dv">28</span>)</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove [edit] from the artist names</span></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>artist_list <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">[edit</span><span class="sc">\\</span><span class="st">]"</span>, <span class="st">""</span>, artist_list)</span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>artist_list <span class="ot">&lt;-</span> <span class="fu">str_squish</span>(artist_list)</span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>split_songs <span class="ot">&lt;-</span> <span class="fu">str_split</span>(song_list, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean up whitespace and remove empty rows</span></span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>clean_songs <span class="ot">&lt;-</span> <span class="fu">map</span>(split_songs, <span class="sc">~</span> <span class="fu">str_squish</span>(.x) <span class="sc">%&gt;%</span> .[. <span class="sc">!=</span> <span class="st">""</span>])</span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Only keep artists with corresponding song lists</span></span>
+<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Check which artists actually have songs listed</span></span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a>valid_artists <span class="ot">&lt;-</span> artist_list[<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(clean_songs)]</span>
+<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine only valid pairs</span></span>
+<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a>woodstock_data <span class="ot">&lt;-</span> <span class="fu">map2</span>(</span>
+<span id="cb21-44"><a href="#cb21-44" aria-hidden="true" tabindex="-1"></a>  valid_artists,</span>
+<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a>  clean_songs,</span>
+<span id="cb21-46"><a href="#cb21-46" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> <span class="fu">data.frame</span>(<span class="at">artist =</span> .x, <span class="at">song =</span> .y, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb21-48"><a href="#cb21-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>()</span>
+<span id="cb21-49"><a href="#cb21-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-50"><a href="#cb21-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first 10 rows</span></span>
+<span id="cb21-51"><a href="#cb21-51" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(woodstock_data, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          artist                                                    song
+1  Richie Havens                                       "From the Prison"
+2  Richie Havens                                          "Get Together"
+3  Richie Havens                             "From the Prison" (reprise)
+4  Richie Havens                                   "I'm a Stranger Here"
+5  Richie Havens                                      "High Flying Bird"
+6  Richie Havens                               "I Can't Make It Anymore"
+7  Richie Havens    "With a Little Help from My Friends" (Beatles cover)
+8  Richie Havens                                       "Handsome Johnny"
+9  Richie Havens "Strawberry Fields Forever / Hey Jude" (Beatles covers)
+10 Richie Havens     "Freedom (Motherless Child)" (improvised lyrics[5])</code></pre>
+</div>
+</div>
+<p>Now I have a data frame consisting of every artist and each song they played. Next, I had to add lyrics to the data frame. I did this by creating a function that scraped the lyrics from pages on LyricsFreak for every song.</p>
+<p>With so much data, this function takes a while to run. For rendering purposes, I’m including my code as text.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating a function to scrape the LyricsFreak pages for each song. </span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#get_lyrics_lyricsfreak &lt;- function(song_name, artist_name) {</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Construct search URL</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a> <span class="co"># base_search_url &lt;- "https://www.lyricsfreak.com/search.php"</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">#query &lt;- paste(artist_name, song_name)</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Send search request</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#search_page &lt;- GET(base_search_url, query = list(q = query))</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Parse the search result page</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">#search_html &lt;- read_html(content(search_page, as = "text"))</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Get the first song link that matches the artist</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">#song_link &lt;- search_html %&gt;%</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">#html_nodes("a.song") %&gt;%</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">#html_attr("href") %&gt;%</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">#.[1]  # Get the first match</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If no link found, return NA</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>  <span class="co">#if (is.na(song_link) || length(song_link) == 0) {</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>    <span class="co">#return(NA)</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>  <span class="co">#}</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Complete the URL for the song's page</span></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>  <span class="co">#song_url &lt;- paste0("https://www.lyricsfreak.com", song_link)</span></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Scrape the lyrics from the song's page</span></span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>  <span class="co">#song_page &lt;- read_html(song_url)</span></span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>  <span class="co">#lyrics &lt;- song_page %&gt;%</span></span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">#html_nodes(".js-share-text") %&gt;%</span></span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>    <span class="co">#html_text2()</span></span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Clean up the lyrics text</span></span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>  <span class="co">#lyrics &lt;- str_squish(lyrics)</span></span>
+<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>  <span class="co">#return(lyrics)</span></span>
+<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a><span class="co">#}</span></span>
+<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize a column to store lyrics</span></span>
+<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a><span class="co">#woodstock_data$lyrics &lt;- NA</span></span>
+<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through each row and get lyrics</span></span>
+<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a><span class="co">#for (i in 1:nrow(woodstock_data)) {</span></span>
+<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a>  <span class="co">#song_name &lt;- woodstock_data$song[i]</span></span>
+<span id="cb23-47"><a href="#cb23-47" aria-hidden="true" tabindex="-1"></a>  <span class="co">#artist_name &lt;- woodstock_data$artist[i]</span></span>
+<span id="cb23-48"><a href="#cb23-48" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-49"><a href="#cb23-49" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Get the lyrics and store it in the new column</span></span>
+<span id="cb23-50"><a href="#cb23-50" aria-hidden="true" tabindex="-1"></a>  <span class="co">#woodstock_data$lyrics[i] &lt;- get_lyrics_lyricsfreak(song_name, artist_name)</span></span>
+<span id="cb23-51"><a href="#cb23-51" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-52"><a href="#cb23-52" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Pause to be polite to the website</span></span>
+<span id="cb23-53"><a href="#cb23-53" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Sys.sleep(2)</span></span>
+<span id="cb23-54"><a href="#cb23-54" aria-hidden="true" tabindex="-1"></a><span class="co">#}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I saved the output as a csv file, and printed it below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df_lyrics <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"woodstock_lyrics.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 307 Columns: 3
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (3): artist, song, lyrics
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_lyrics, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 3
+   artist        song                                                     lyrics
+   &lt;chr&gt;         &lt;chr&gt;                                                    &lt;chr&gt; 
+ 1 Richie Havens "\"From the Prison\""                                     &lt;NA&gt; 
+ 2 Richie Havens "\"Get Together\""                                        &lt;NA&gt; 
+ 3 Richie Havens "\"From the Prison\" (reprise)"                           &lt;NA&gt; 
+ 4 Richie Havens "\"I'm a Stranger Here\""                                 &lt;NA&gt; 
+ 5 Richie Havens "\"High Flying Bird\""                                   "\"Th…
+ 6 Richie Havens "\"I Can't Make It Anymore\""                             &lt;NA&gt; 
+ 7 Richie Havens "\"With a Little Help from My Friends\" (Beatles cover)"  &lt;NA&gt; 
+ 8 Richie Havens "\"Handsome Johnny\""                                    "Hey,…
+ 9 Richie Havens "\"Strawberry Fields Forever / Hey Jude\" (Beatles cove…  &lt;NA&gt; 
+10 Richie Havens "\"Freedom (Motherless Child)\" (improvised lyrics[5])"   &lt;NA&gt; </code></pre>
+</div>
+</div>
+<p>Running this function added an empty column to my existing data frame, and added the lyrics for each song. I am running into some problems at this step, as 161 of the songs do not have lyrics. Going forward, I may have to scrape from other websites to fill in gaps. For now, I have enough lyrics to create a lyrics corpus and perform some pre-processing steps.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#First I removed NA and missing values </span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>cleaned_data <span class="ot">&lt;-</span> df_lyrics <span class="sc">%&gt;%</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(lyrics) <span class="sc">&amp;</span> lyrics <span class="sc">!=</span> <span class="st">""</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>cleaned_data<span class="sc">$</span>doc_id <span class="ot">&lt;-</span> <span class="fu">paste</span>(cleaned_data<span class="sc">$</span>artist, cleaned_data<span class="sc">$</span>song, <span class="at">sep =</span> <span class="st">" - "</span>)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating the corpus</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>lyrics_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(cleaned_data<span class="sc">$</span>lyrics, </span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>                        <span class="at">docnames =</span> cleaned_data<span class="sc">$</span>doc_id)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lyrics_corpus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Corpus consisting of 146 documents, showing 100 documents:
+
+                                                               Text Types
+                                 Richie Havens - "High Flying Bird"    92
+                                  Richie Havens - "Handsome Johnny"    92
+                                    Sweetwater - "Motherless Child"    36
+                                            Sweetwater - "Look Out"    74
+                                            Sweetwater - "Day Song"    55
+                                        Sweetwater - "What's Wrong"   137
+                                          Sweetwater - "Two Worlds"   108
+                               Tim Hardin - "If I Were a Carpenter"    66
+                                   Tim Hardin - "Reason to Believe"    52
+                                  Tim Hardin - "Speak Like a Child"   133
+                              Tim Hardin - "Simple Song of Freedom"   133
+                                        Melanie - "Close to It All"   100
+                                            Melanie - "Momma Momma"    65
+                                       Melanie - "Beautiful People"   136
+                                        Melanie - "Animal Crackers"   125
+                                       Melanie - "Tuning My Guitar"   147
+                           Arlo Guthrie - "Coming into Los Angeles"    94
+                                  Arlo Guthrie - "Wheel of Fortune"    70
+                            Arlo Guthrie - "Every Hand in the Land"    99
+                                     Arlo Guthrie - "Amazing Grace"    64
+                                         Joan Baez - "Oh Happy Day"    38
+                            Joan Baez - "The Last Thing on My Mind"    88
+                                  Joan Baez - "I Shall Be Released"    84
+                                             Joan Baez - "Joe Hill"    77
+                                    Joan Baez - "Sweet Sir Galahad"   162
+                                         Joan Baez - "Hickory Wind"    72
+                                    Joan Baez - "One Day at a Time"    72
+                Joan Baez - "Take Me Back to the Sweet Sunny South"    78
+                                    Joan Baez - "We Shall Overcome"   120
+                              Country Joe McDonald - "Ring of Fire"    46
+                                                Santana - "Waiting"    51
+                                              Santana - "Evil Ways"    84
+                                    Santana - "You Just Don't Care"    66
+                                                  Santana - "Savor"    30
+                                                  Santana - "Jingo"     9
+                                             Santana - "Persuasion"    69
+                            John Sebastian - "Darling Be Home Soon"   104
+                              John Sebastian - "Younger Generation"   166
+                          The Incredible String Band - "Invocation"   170
+                          The Incredible String Band - "The Letter"   157
+                         The Incredible String Band - "This Moment"    62
+                        The Incredible String Band - "Come with Me"   102
+       The Incredible String Band - "When You Find Out Who You Are"   193
+                               Canned Heat - "Going Up the Country"    91
+                                  Canned Heat - "On the Road Again"    94
+                                      Mountain - "Blood of the Sun"    84
+                        Mountain - "Theme for an Imaginary Western"    83
+                                      Mountain - "Southbound Train"   169
+                                      Grateful Dead - "St. Stephen"   211
+                                       Grateful Dead - "Mama Tried"   113
+                                        Grateful Dead - "Dark Star"    60
+                                        Grateful Dead - "High Time"    90
+                          Grateful Dead - "Turn On Your Love Light"    60
+                 Creedence Clearwater Revival - "Born on the Bayou"    76
+                       Creedence Clearwater Revival - "Green River"   103
+ Creedence Clearwater Revival - "Ninety-Nine and a Half (Won't Do)"    82
+                           Creedence Clearwater Revival - "Bootleg"    68
+                         Creedence Clearwater Revival - "Commotion"    73
+                   Creedence Clearwater Revival - "Bad Moon Rising"    73
+                        Creedence Clearwater Revival - "Proud Mary"    87
+              Creedence Clearwater Revival - "I Put a Spell on You"    43
+      Creedence Clearwater Revival - "Night Time Is the Right Time"    48
+                 Creedence Clearwater Revival - "Keep on Chooglin'"    79
+                           Creedence Clearwater Revival - "Susie Q"    29
+                      Sly &amp; the Family Stone - "Sing a Simple Song"    99
+              Sly &amp; the Family Stone - "You Can Make It If You Try"    61
+                      Sly &amp; the Family Stone - "Dance to the Music"    80
+               Sly &amp; the Family Stone - "I Want to Take You Higher"    73
+                                  Sly &amp; the Family Stone - "Stand!"    94
+                                        The Who - "Heaven and Hell"    58
+                                        The Who - "I Can't Explain"    84
+                                             The Who - "It's a Boy"    16
+                                                   The Who - "1921"    89
+                                        The Who - "Amazing Journey"   121
+                                                 The Who - "Sparks"    81
+                                              The Who - "Christmas"   372
+                                         The Who - "The Acid Queen"   105
+                             The Who - "Do You Think It's Alright?"    33
+                                           The Who - "Fiddle About"    44
+                                       The Who - "There's a Doctor"    35
+                                      The Who - "Go to the Mirror!"   120
+                                       The Who - "Smash the Mirror"    53
+                                               The Who - "I'm Free"   191
+                                   The Who - "Tommy's Holiday Camp"    37
+                                The Who - "We're Not Gonna Take It"   157
+                                        The Who - "See Me, Feel Me"    34
+                                       The Who - "Summertime Blues"    96
+                                       The Who - "Shakin' All Over"    51
+                 Jefferson Airplane - "The Other Side of This Life"    76
+                            Jefferson Airplane - "Somebody to Love"    71
+                 Jefferson Airplane - "3/5 of a Mile in 10 Seconds"    98
+            Jefferson Airplane - "Won't You Try/Saturday Afternoon"   106
+                             Jefferson Airplane - "Eskimo Blue Day"   138
+                     Jefferson Airplane - "Plastic Fantastic Lover"   107
+                                Jefferson Airplane - "Wooden Ships"   188
+                             Jefferson Airplane - "Uncle Sam Blues"    67
+                                  Jefferson Airplane - "Volunteers"    61
+        Jefferson Airplane - "The Ballad of You and Me and Pooneil"   129
+                                Jefferson Airplane - "White Rabbit"    99
+                Jefferson Airplane - "The House at Pooneil Corners"   167
+ Tokens Sentences
+    276        13
+    372         7
+    123         1
+    117         1
+    105         1
+    209        13
+    171         2
+    154         7
+    174         1
+    295         1
+    216         9
+    305         7
+    176         9
+    271         2
+    217        15
+    356         3
+    146         3
+    116         1
+    172         1
+    135         1
+    291         1
+    214         4
+    181        12
+    191         8
+    278        14
+    115         1
+    193         7
+    115         1
+    306        12
+    204         8
+     75         1
+    162        15
+    132         9
+     37         2
+     44         1
+    120         1
+    294         1
+    286        25
+    357         1
+    247         1
+    130         2
+    169         1
+    342         2
+    166         1
+    254        14
+    150         2
+    140         1
+    333         4
+    377        20
+    228         7
+     95         9
+    187         9
+    228         8
+    197        11
+    155        10
+    203        21
+    113        10
+    158        12
+    180        18
+    238         1
+    145         1
+    195        12
+    135        11
+    187         1
+    368         1
+    231         2
+    150         7
+    214         8
+    168         5
+    123         7
+    230         3
+     36         6
+    267        22
+    188        14
+    148         1
+    694         5
+    252        28
+     51         5
+    136        15
+     75         4
+    259         1
+    103         8
+    697         3
+     67         6
+    494        41
+    133         1
+    212         1
+    151         1
+    231         3
+    215        21
+    190         2
+    247         1
+    218         1
+    142         1
+    299         1
+    173         1
+    101         1
+    319         6
+    141         1
+    296        22</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ndoc</span>(lyrics_corpus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 146</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">ntoken</span>(lyrics_corpus))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 31958</code></pre>
+</div>
+</div>
+<p>There are 146 documents and 31958 tokens in my corpus.</p>
+<p>Next, I removed numbers, punctuation, and stopwords. I added some custom stopwords, as song lyrics tend to have some repetitive terms that are not very representative of the messages of the songs.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>tokens_clean <span class="ot">&lt;-</span> <span class="fu">tokens</span>(lyrics_corpus, </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">what =</span> <span class="st">"word"</span>, </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">remove_numbers =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">remove_punct =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>                <span class="fu">tokens_tolower</span>()</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>custom_stopwords <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">stopwords</span>(<span class="st">"en"</span>), <span class="st">"baby"</span>, <span class="st">"na"</span>, <span class="st">"lyrics"</span>, <span class="st">"oh"</span>, <span class="st">"got"</span>, <span class="st">"x"</span>, <span class="st">"yeah"</span>, <span class="st">"can"</span>, <span class="st">"go"</span>, <span class="st">"like"</span>, <span class="st">"now"</span>, <span class="st">"chorus"</span>, <span class="st">"get"</span>, <span class="st">"one"</span>, <span class="st">"x"</span>)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>tokens_clean <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(tokens_clean,</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>                              <span class="at">pattern =</span> custom_stopwords,</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>                              <span class="at">selection =</span> <span class="st">"remove"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then, I created a document feature matrix and found some top features.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>lyrics_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(tokens_clean)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">topfeatures</span>(lyrics_dfm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> know  love share     ×  come   see  just never  time gonna 
+  181   177   148   146   131   121   103    98    98    89 </code></pre>
+</div>
+</div>
+<p>Next, I created a few preliminary visualizations to get an idea of what I’ll be working with. I made a wordcloud and a network. Moving forward, I’ll have to figure out ways I can remove more custom “stopwords” that appear in almost all songs but do not add value.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># draw the wordcloud</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_wordcloud</span>(lyrics_dfm, <span class="at">min_count =</span> <span class="dv">20</span>, <span class="at">random_order =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Counterculture_Blog2_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>smaller_dfm <span class="ot">&lt;-</span> <span class="fu">dfm_trim</span>(lyrics_dfm, <span class="at">min_termfreq =</span> <span class="dv">10</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>smaller_dfm <span class="ot">&lt;-</span> <span class="fu">dfm_trim</span>(smaller_dfm, <span class="at">min_docfreq =</span> .<span class="dv">2</span>, <span class="at">docfreq_type =</span> <span class="st">"prop"</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create fcm from dfm</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>smaller_fcm <span class="ot">&lt;-</span> <span class="fu">fcm</span>(smaller_dfm)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="co"># check the dimensions (i.e., the number of rows and the number of columnns)</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="co"># of the matrix we created</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(smaller_fcm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 18 18</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>myFeatures <span class="ot">&lt;-</span> <span class="fu">names</span>(<span class="fu">topfeatures</span>(smaller_dfm, <span class="dv">30</span>))</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="co"># retain only those top features as part of our matrix</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>even_smaller_fcm <span class="ot">&lt;-</span> <span class="fu">fcm_select</span>(smaller_fcm, <span class="at">pattern =</span> myFeatures, <span class="at">selection =</span> <span class="st">"keep"</span>)</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="co"># check dimensions</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(even_smaller_fcm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 18 18</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute size weight for vertices in network</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>size <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">colSums</span>(even_smaller_fcm))</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create plot</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_network</span>(even_smaller_fcm, <span class="at">vertex_size =</span> size <span class="sc">/</span> <span class="fu">max</span>(size) <span class="sc">*</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Counterculture_Blog2_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Finally I found some sentiment scores.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>sentiment_scores <span class="ot">&lt;-</span> <span class="fu">dfm_lookup</span>(lyrics_dfm, <span class="at">dictionary =</span> data_dictionary_LSD2015)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to df</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>sentiment_df <span class="ot">&lt;-</span> <span class="fu">convert</span>(sentiment_scores, <span class="at">to =</span> <span class="st">"data.frame"</span>)</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>sentiment_df<span class="sc">$</span>Text <span class="ot">&lt;-</span> <span class="fu">as.character</span>(lyrics_corpus)</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sentiment_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                              doc_id negative positive neg_positive
+1 Richie Havens - "High Flying Bird"       13        4            0
+2  Richie Havens - "Handsome Johnny"       23       11            0
+3    Sweetwater - "Motherless Child"        1        0            0
+4            Sweetwater - "Look Out"        1        3            0
+5            Sweetwater - "Day Song"        6        7            0
+6        Sweetwater - "What's Wrong"       24        4            0
+  neg_negative
+1            0
+2            0
+3            0
+4            0
+5            0
+6            0
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           Text
+1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               "There's a high flyin' bird, flying way up in the sky, And I wonder if she looks down, as she goes on by? Well, she's flying so freely in the sky. Lord, look at me here, I'm rooted like a tree here, Got those sit-down, Can't cry Oh Lord, gonna die blues. Now the sun it comes up and lights up the day, And when he gets tired, Lord, he goes on down his way, To the east and to the west, He meets God every day. Lord, look at me here, I'm rooted like a tree here, Got those sit-down, can't cry Oh Lord, gonna die blues. Now I had a woman Lord, she lived down by the mine, She ain't never seen the sun, Oh Lord, never stopped trying. Then one day my woman up and died, Lord, she up and died now. Oh Lord, she up and died now. She wanted to fly, And the only way to fly is die, die, die. There's a high flyin' bird, flying way up in the sky, And I wonder if she looks down as she goes on by? Well, she's flying so freely in the sky. Lord, look at me here, I'm rooted like a tree here, Got those sit-down, can't cry, Oh, Lord, gonna die blues. " Share lyrics ×
+2 Hey, look yonder, tell me what's that you see Marching to the fields of Concord? Looks like Handsome Johnny with a musket in his hand Marching to the Concord war, hey, marching to the Concord war Hey, look yonder, tell me what's that you see Marching to the fields of Gettysburg? Looks like Handsome Johnny with a flintlock in his hand Marching to the Gettysburg war, hey, marching to the Gettysburg war Hey, it's a long hard road, it's a long hard road It's a long hard road, hey, before we'll be free Hey, look yonder, tell me what you see Marching to the fields of Dunkirk? Looks like Handsome Johnny with a carbine in his hand Marching to the Dunkirk war, hey, marching to the Dunkirk war Hey, look yonder, tell me what you see Marching to the fields of Korea? Looks like Handsome Johnny with an M1 in his hand Marching to the Korean war, hey, marching to the Korean war Hey, it's a long hard road, it's a long hard road It's a long hard road, hey, before we'll be free Hey, before we'll be free Hey, look yonder, tell me what you see Marching to the fields of Vietnam? Looks like Handsome Johnny with an M15 Marching to the Vietnam war, hey, marching to the Vietnam war Hey, look yonder, tell me what you see Marching to the fields of Birmingham? Looks like Handsome Johnny with his hand rolled in a fist Marching to the Birmingham war, hey, marching to the Birmingham war Hey, what's the use of singing this song Some of you are not even listening Tell me what it is we've got to do, wait for our fields to start glistening Hey, wait for the bullets to start whistling Hey, here comes a hydrogen bomb and here comes a guided missile Here comes a hydrogen bomb, I can almost hear its whistle I can almost hear its whistle Share lyrics ×
+3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      Sometimes I feel like a motherless child Sometimes I feel like a motherless child Sometimes I feel like a motherless child And I'm alone, and I'm alone away from my home Sometimes I feel like if I'm almost gone Sometimes I feel like if I'm almost gone Sometimes I feel like if I'm almost gone And I'm aloneand I'm la la la la la la alone and I'm alone Away from my home, from my home Sometimes I feel like there's nobody there Sometimes I feel like there'sno no no nobody there Sometimes I feel like there'snobody there And I'm aloneand I'm la la la la la la alone and I'm real lonely From my home x 8 Share lyrics ×
+4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 Look out, somebody's comin' He's got the key to your door He ain't who you thought of He's not what you're lookin' for Let's go to the city Put down your papa's rake and hoe I'll bring you love and money Ooh Look out, somebody's comin' He's got you on the list He'll take the time to haunt you Tempt you with the things you missed I want you to remember my face Heaven's not real This is the place Hey, hey, hey Look out, somebody's comin' Still you don't believe he's there He says you been sold Honey, you say you don't care Share lyrics ×
+5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Captain sailed the ship today Old Love, she just sighed Met his mother on the way They stopped and cried Cat on the sill See the sad rain fall Do as you will I love you more than all Old Love sailed the ship today Captain he just sighed Met her father on the way They stopped and cried Cat on the sill See the sad rain fall Do as you will I love you more than all Sing the song of sailin' away Sing it from your heart Sing the song of sailin' away Even though we part Share lyrics ×
+6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             "WHAT'S WRONG" What's wrong in our schools? Politicians are blowing their cools Over they who refuse to follow the rules Though they should be separate dealings What's wrong at the zoo? The animals sense our fear showing through Our facade yet there's not a thing they can do It's hurting their poor helpless feelings What's wrong? Chorus: What is wrong? What is wrong? What 's wrong with our folks? Strong and solid as hundred year oaks So firm in their ways They think we are jokes They just don't know why What's wrong in their head? Won't they just try to see it once our way instead? If they did then there wouldn't be any more dead No reason to cry Chorus What's wrong in your heart? Do you feel that soon mankind and reason will part? As each day worsens you fear we will start On that anxiously dark endless journey What's wrong with this top? As it spins each year gives us a worsening crop Of hatred that one day could cause it to stop A lesson we all could be learning What's wrong? Chorus (repeats) Share lyrics ×</code></pre>
+</div>
+</div>
+<p>There is still a lot of work that needs to be done on this corpus, but I believe I’m making good progress and this will be a good representation of the themes of counterculture music.</p>
+</section>
+<section id="media-corpus" class="level3">
+<h3 class="anchored" data-anchor-id="media-corpus">Media Corpus</h3>
+<p>For my corpus of mainstream media about counterculture, I would like to use historical newspapers from ProQuest. I was exploring many of these documents using search terms such as “Vietnam War”, “antiwar”, “protest”, “hippie”, “counterculture”, etc. There were hundreds of relevant documents. Unfortunately, most of these are in pdf form. This makes creating the corpus more difficult. Going forward, I will either have to perform OCR, or find another source to represent the sentiment of mainstream media during the 60’s.</p>
+<p>Here’s an example of one newspaper article from April 24, 1971.</p>
+<p><img src="images/Screenshot%202025-02-26%20at%205.01.13%20PM.png" class="img-fluid"></p>
+<p>Documents like this could be really useful in my analysis, and I look forward to continuing work on creating a corpus.</p>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Using text as data to investigate counterculture will provide a really interesting snapshot of sentiments and themes of the time period. I’m fascinated by this movement, and I believe it was a very important time in America for politics, culture, and rock music. Breaking down these corpora into their core elements can provide a new perspective on counterculture that I haven’t previously considered, and I’m excited to see where this project can take me.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
